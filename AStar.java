@@ -5,7 +5,6 @@ import java.util.*;
  * Uses the A* Algorithm to find the shortest path from 
  * an initial to a goal node.Nodes have to implement the
  * ISearchNode interface. 
- * @author: 
  *
  */
 public class AStar {
