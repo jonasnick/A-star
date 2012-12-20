@@ -1,7 +1,7 @@
 package AStar;
 import java.util.*;
 
-/*
+/**
  * Interface of a search node.
  */
 public interface ISearchNode extends Comparable<ISearchNode> {

@@ -1,10 +1,11 @@
 package AStar;
 import AStar.ISearchNode;
 import java.util.*;
-/*
+/**
  * Uses the A* Algorithm to find the shortest path from 
- * an initial to a goal node. Nodes have to implement the
+ * an initial to a goal node.Nodes have to implement the
  * ISearchNode interface. 
+ * @author: 
  *
  */
 public class AStar {
@@ -12,7 +13,7 @@ public class AStar {
     private static int verbose = 0;
     public AStar() {
     }
-    /*
+    /**
      * @param initialNode start of the search
      * @param goalNode end of the search
      * @return goal node from which you can reconstruct the path
@@ -73,7 +74,7 @@ public class AStar {
         return null;
     }
 
-    /*
+    /**
      * returns the element from a PriorityQueue of ISearchNodes
      * @param queue queue to search in
      * @param searchedNode node we search
@@ -89,7 +90,7 @@ public class AStar {
     }
 
 
-    /*
+    /**
      * reconstructs path from nodes (backwards), after search this will be shortest path
      * first element is the initial node and the last element is the goal node
      * @param node node from which we want to reconstruct the path from

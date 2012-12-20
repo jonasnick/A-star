@@ -3,7 +3,7 @@ import AStar.ISearchNode;
 import AStar.ASearchNode;
 import java.util.*;
 
-/*
+/**
  * Test case from wikipedia
  * http://de.wikipedia.org/wiki/A*-Algorithmus
  */

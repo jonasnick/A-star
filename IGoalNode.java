@@ -1,6 +1,6 @@
 package AStar;
 
-/*
+/**
  * GoalNodes don't need as much Information
  * as SearchNodes.
  */

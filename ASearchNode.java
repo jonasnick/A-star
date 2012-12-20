@@ -1,7 +1,7 @@
 package AStar;
 import AStar.ISearchNode;
 
-/*
+/**
  * Implements trivial functions for a search node.
  */
 public abstract class ASearchNode implements ISearchNode {
