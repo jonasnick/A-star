@@ -90,12 +90,12 @@ public class AStar {
 
 
     /**
-     * reconstructs path from nodes (backwards), after search this will be shortest path
+     * returns shortest path
      * first element is the initial node and the last element is the goal node
-     * @param node node from which we want to reconstruct the path from
-     * @return path to the parameter node
+     * @param node goalNode a goal node after a search call
+     * @return path to the goal node
      */
-    public static ArrayList<ISearchNode> reconstructPath(ISearchNode node) {
+    public static ArrayList<ISearchNode> shortestPath(ISearchNode node) {
         ArrayList<ISearchNode> path = new ArrayList<ISearchNode>();
         path.add(node);
         ISearchNode currentNode = node;
