@@ -1,5 +1,6 @@
 package AStar.Tests;
 import AStar.IGoalNode;
+import AStar.ISearchNode;
 import AStar.Tests.SearchNodeCity;
 /**
  * Test case from wikipedia
@@ -11,7 +12,7 @@ public class GoalNodeCity implements IGoalNode {
     public GoalNodeCity(String name) {
         this.name = name;
     }
-    public boolean equals(Object other) {
+    public boolean inGoal(ISearchNode other) {
          if(other instanceof SearchNodeCity) {
             SearchNodeCity otherNode = (SearchNodeCity) other;
             return (this.name == otherNode.getName());

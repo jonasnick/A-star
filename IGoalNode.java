@@ -1,9 +1,10 @@
 package AStar;
+import AStar.ISearchNode;
 
 /**
  * GoalNodes don't need as much Information
  * as SearchNodes.
  */
 public interface IGoalNode{
-    public boolean equals(Object other);
+    public boolean inGoal(ISearchNode other);
 } 

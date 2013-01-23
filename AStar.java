@@ -30,7 +30,7 @@ public class AStar {
                 System.out.println("Current node: " + currentNode.toString());
                 System.out.println("Closed set: " + closedSet.toString());
             }
-            if(goalNode.equals(currentNode)) {
+            if(goalNode.inGoal(currentNode)) {
                 //we know the shortest path to the goal node, done
                 return currentNode;
             }

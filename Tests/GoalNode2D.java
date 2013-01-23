@@ -1,5 +1,6 @@
 package AStar.Tests;
 import AStar.IGoalNode;
+import AStar.ISearchNode;
 import AStar.Tests.SearchNode2D;
 public class GoalNode2D implements IGoalNode {
     private int x;
@@ -8,7 +9,7 @@ public class GoalNode2D implements IGoalNode {
         this.x = x;
         this.y = y; 
     }
-    public boolean equals(Object other) {
+    public boolean inGoal(ISearchNode other) {
         if(other instanceof SearchNode2D) {
             SearchNode2D otherNode = (SearchNode2D) other;
             return (this.x == otherNode.getX()) && (this.y == otherNode.getY());
