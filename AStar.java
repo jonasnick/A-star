@@ -12,7 +12,19 @@ public class AStar {
     private static int verbose = 2;
     // The maximum number of completed nodes. After that number the algorithm returns null.
     // If negative, the search will run until the goal node is found.
-    private static int maxSteps = 5;
+    private static int maxSteps = -1;
+
+    /**
+     * Returns the shortest Path from a start node to an end node according to 
+     * the A* heuristics (h must not overestimate). initialNode and last found node included.
+     */
+    public static ArrayList<ISearchNode> shortestPath(ISearchNode initialNode, IGoalNode goalNode) {
+        //perform search and save the 
+        ISearchNode endNode = AStar.search(initialNode, goalNode);
+        //return shortest path according to AStar heuristics
+        return AStar.path(endNode);
+    }
+        
 
     /**
      * @param initialNode start of the search
