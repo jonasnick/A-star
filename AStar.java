@@ -9,18 +9,27 @@ import java.util.*;
  */
 public class AStar {
     // Amount of debug output 0,1,2
-    private static int verbose = 2;
+    private int verbose = 1;
     // The maximum number of completed nodes. After that number the algorithm returns null.
     // If negative, the search will run until the goal node is found.
-    private static int maxSteps = -1;
+    private int maxSteps = -1;
+    //number of search steps the AStar will perform after that null is returned
+    private int numSearchSteps;
+    
+    public ISearchNode bestNodeAfterSearch;
+
+    public AStar() {
+    }
 
     /**
      * Returns the shortest Path from a start node to an end node according to 
      * the A* heuristics (h must not overestimate). initialNode and last found node included.
      */
-    public static ArrayList<ISearchNode> shortestPath(ISearchNode initialNode, IGoalNode goalNode) {
+    public ArrayList<ISearchNode> shortestPath(ISearchNode initialNode, IGoalNode goalNode) {
         //perform search and save the 
-        ISearchNode endNode = AStar.search(initialNode, goalNode);
+        ISearchNode endNode = this.search(initialNode, goalNode);
+        if(endNode == null) 
+            return null;
         //return shortest path according to AStar heuristics
         return AStar.path(endNode);
     }
@@ -31,14 +40,14 @@ public class AStar {
      * @param goalNode end of the search
      * @return goal node from which you can reconstruct the path
      */
-    public static ISearchNode search(ISearchNode initialNode, IGoalNode goalNode) {
+    public ISearchNode search(ISearchNode initialNode, IGoalNode goalNode) {
         PriorityQueue<ISearchNode> openSet = new PriorityQueue<ISearchNode>();
         openSet.add(initialNode);
         ArrayList<ISearchNode> closedSet = new ArrayList<ISearchNode>();
         // current iteration of the search
-        int i = 0;
+        this.numSearchSteps = 0;
 
-        while(openSet.size() > 0 && (maxSteps < 0 || i < maxSteps)) {
+        while(openSet.size() > 0 && (maxSteps < 0 || this.numSearchSteps < maxSteps)) {
             //get element with the least sum of costs from the initial node 
             //and heuristic costs to the goal 
             ISearchNode currentNode = openSet.remove();
@@ -50,6 +59,7 @@ public class AStar {
 
             if(goalNode.inGoal(currentNode)) {
                 //we know the shortest path to the goal node, done
+                this.bestNodeAfterSearch = currentNode;
                 return currentNode;
             }
             //get successor nodes
@@ -89,8 +99,10 @@ public class AStar {
                 }
             }
             closedSet.add(currentNode);
-            i += 1;
+            this.numSearchSteps += 1;
         }
+        
+        this.bestNodeAfterSearch = Collections.min(closedSet);
         return null;
     }
 
@@ -115,6 +127,18 @@ public class AStar {
         return path; 
     }
 
+    public int numSearchSteps() {
+        return this.numSearchSteps;
+    }
+
+    public ISearchNode bestNodeAfterSearch() {
+        return this.bestNodeAfterSearch;
+    }
+
+    public void setMaxSteps(int maxSteps) {
+        this.maxSteps = maxSteps;
+    }
+
     /**
      * returns the element from a PriorityQueue of ISearchNodes
      * @param queue queue to search in
@@ -129,4 +153,5 @@ public class AStar {
         }
         return null;
     }
+
 }

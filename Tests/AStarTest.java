@@ -11,13 +11,13 @@ public class AStarTest {
     public void SearchNodeTest2D() {
         GoalNode2D goalNode = new GoalNode2D(3, 3);
         SearchNode2D initialNode = new SearchNode2D(1, 1, null, goalNode);
-        ArrayList<ISearchNode> path = AStar.shortestPath(initialNode, goalNode);
+        ArrayList<ISearchNode> path = new AStar().shortestPath(initialNode, goalNode);
         assertEquals(path.size(), 5);
     }
     @Test
     public void SearchNodeCityTest() {
         ISearchNode initialNode = new SearchNodeCity("Saarbrücken");
-        ArrayList<ISearchNode> path = AStar.shortestPath(initialNode, new GoalNodeCity("Würzburg"));
+        ArrayList<ISearchNode> path = new AStar().shortestPath(initialNode, new GoalNodeCity("Würzburg"));
         double e = 0.00001;
         assertEquals(path.get(0).f(), 222.0, e);
         assertEquals(path.get(1).f(), 228, e);
