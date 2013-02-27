@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class AStar {
     // Amount of debug output 0,1,2
-    private int verbose = 1;
+    private int verbose = 0;
     // The maximum number of completed nodes. After that number the algorithm returns null.
     // If negative, the search will run until the goal node is found.
     private int maxSteps = -1;
@@ -50,7 +50,7 @@ public class AStar {
         while(openSet.size() > 0 && (maxSteps < 0 || this.numSearchSteps < maxSteps)) {
             //get element with the least sum of costs from the initial node 
             //and heuristic costs to the goal 
-            ISearchNode currentNode = openSet.remove();
+            ISearchNode currentNode = openSet.poll();
 
             //debug output according to verbose
             System.out.println((verbose>1 ? "Open set: " + openSet.toString() + "\n" : "") 
@@ -76,10 +76,8 @@ public class AStar {
                 if(discSuccessorNode != null) {
                     successorNode = discSuccessorNode;
                     inOpenSet = true;
-                    /* System.out.println("In open set!"); */
                 } else {
                     inOpenSet = false;
-                    /* System.out.println("Not in open set"); */
                 }
                 //compute tentativeG
                 double tentativeG = currentNode.g() + currentNode.c(successorNode);
