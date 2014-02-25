@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import astar.ISearchNode;
 import astar.datastructures.ClosedSet;
+import astar.datastructures.ClosedSetHash;
 import astar.datastructures.IClosedSet;
 import astar.datastructures.IOpenSet;
 import astar.datastructures.OpenSet;
@@ -49,10 +50,12 @@ public class AStar {
      * @return goal node from which you can reconstruct the path
      */
     public ISearchNode search(ISearchNode initialNode, IGoalNode goalNode) {
-    	
+
+    	boolean implementsHash = initialNode.keyCode()!=null;
         IOpenSet openSet = new OpenSet(new SearchNodeComparator());
         openSet.add(initialNode);
-        IClosedSet closedSet = new ClosedSet(new SearchNodeComparator());
+        IClosedSet closedSet = implementsHash ? new ClosedSetHash(new SearchNodeComparator())
+        						: new ClosedSet(new SearchNodeComparator());
         // current iteration of the search
         this.numSearchSteps = 0;
 

@@ -67,4 +67,8 @@ public class SearchNode2D extends ASearchNode {
     private SearchNode2D castToSearchNode2D(ISearchNode other) {
         return (SearchNode2D) other;
     }
+
+    public Integer keyCode() {
+    	return null;
+    }
 }

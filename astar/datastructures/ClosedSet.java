@@ -7,8 +7,8 @@ import java.util.Comparator;
 import astar.ISearchNode;
 
 public class ClosedSet implements IClosedSet {
-	ArrayList<ISearchNode> list;
-	Comparator<ISearchNode> comp;
+	private ArrayList<ISearchNode> list;
+	private Comparator<ISearchNode> comp;
 	
 	public ClosedSet(Comparator<ISearchNode> comp) {
 		this.list = new ArrayList<ISearchNode>();

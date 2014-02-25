@@ -21,7 +21,11 @@ public interface ISearchNode {
     public ISearchNode getParent();
     //set parent
     public void setParent(ISearchNode parent);
-
+    //unique hash for a node to be used in a hash map
+    //makes algorithm significantly faster
+    //return null if you do not want this feature
+    public Integer keyCode();
+    
     public boolean equals(Object other);
 
     public int hashCode();

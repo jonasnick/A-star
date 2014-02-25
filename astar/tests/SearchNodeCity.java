@@ -79,6 +79,10 @@ public class SearchNodeCity extends ASearchNode{
     public void setParent(ISearchNode parent){
         this.parent = this.castToSearchNodeCity(parent);
     }
+    
+    public Integer keyCode() {
+    	return this.name.hashCode();
+    }
 
     public boolean equals(Object other) {
          if(other instanceof SearchNodeCity) {
@@ -101,4 +105,5 @@ public class SearchNodeCity extends ASearchNode{
     public String toString() {
         return this.name + ",f:" + this.f();
     }
+
 }
