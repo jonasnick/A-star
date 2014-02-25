@@ -5,6 +5,10 @@ import java.util.PriorityQueue;
 import java.util.Collections;
 
 import astar.ISearchNode;
+import astar.datastructures.ClosedSet;
+import astar.datastructures.IClosedSet;
+import astar.datastructures.IOpenSet;
+import astar.datastructures.OpenSet;
 
 /**
  * Uses the A* Algorithm to find the shortest path from 
@@ -46,9 +50,9 @@ public class AStar {
      */
     public ISearchNode search(ISearchNode initialNode, IGoalNode goalNode) {
     	
-        PriorityQueue<ISearchNode> openSet = new PriorityQueue<ISearchNode>(1000, new SearchNodeComparator());
+        IOpenSet openSet = new OpenSet(new SearchNodeComparator());
         openSet.add(initialNode);
-        ArrayList<ISearchNode> closedSet = new ArrayList<ISearchNode>();
+        IClosedSet closedSet = new ClosedSet(new SearchNodeComparator());
         // current iteration of the search
         this.numSearchSteps = 0;
 
@@ -77,7 +81,7 @@ public class AStar {
                  * We need to ensure that we use the node and
                  * its g value from the openSet if its already discovered
                  */
-                ISearchNode discSuccessorNode = getNode(openSet, successorNode);
+                ISearchNode discSuccessorNode = openSet.getNode(successorNode);
                 if(discSuccessorNode != null) {
                     successorNode = discSuccessorNode;
                     inOpenSet = true;
@@ -105,7 +109,7 @@ public class AStar {
             this.numSearchSteps += 1;
         }
         
-        this.bestNodeAfterSearch = Collections.min(closedSet, new SearchNodeComparator());
+        this.bestNodeAfterSearch = closedSet.min();
         return null;
     }
 
@@ -146,21 +150,6 @@ public class AStar {
     	public int compare(ISearchNode node1, ISearchNode node2) {
     		return Double.compare(node1.f(), node2.f());
     	}
-    }
-
-    /**
-     * returns the element from a PriorityQueue of ISearchNodes
-     * @param queue queue to search in
-     * @param searchedNode node we search
-     * @return node from the queue
-     */
-    private static ISearchNode getNode(PriorityQueue<ISearchNode> queue, ISearchNode searchedNode) {
-        for(ISearchNode openSearchNode : queue) {
-            if(openSearchNode.equals(searchedNode)) {
-                return openSearchNode;
-            }
-        }
-        return null;
     }
 
 }
