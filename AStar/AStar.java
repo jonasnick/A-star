@@ -46,7 +46,7 @@ public class AStar {
      */
     public ISearchNode search(ISearchNode initialNode, IGoalNode goalNode) {
     	
-        PriorityQueue<ISearchNode> openSet = new PriorityQueue<ISearchNode>();
+        PriorityQueue<ISearchNode> openSet = new PriorityQueue<ISearchNode>(1000, new SearchNodeComparator());
         openSet.add(initialNode);
         ArrayList<ISearchNode> closedSet = new ArrayList<ISearchNode>();
         // current iteration of the search
