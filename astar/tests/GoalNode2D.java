@@ -1,7 +1,7 @@
-package AStar.Tests;
-import AStar.IGoalNode;
-import AStar.ISearchNode;
-import AStar.Tests.SearchNode2D;
+package astar.tests;
+import astar.IGoalNode;
+import astar.ISearchNode;
+import astar.tests.SearchNode2D;
 public class GoalNode2D implements IGoalNode {
     private int x;
     private int y;

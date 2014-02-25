@@ -1,5 +1,5 @@
-package AStar;
-import AStar.ISearchNode;
+package astar;
+import astar.ISearchNode;
 
 /**
  * Implements trivial functions for a search node.

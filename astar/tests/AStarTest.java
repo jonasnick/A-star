@@ -1,9 +1,10 @@
-package AStar.Tests;
-import AStar.Tests.SearchNode2D;
-import AStar.*;
-import AStar.Tests.*;
+package astar.tests;
 import org.junit.Test;
+
+import astar.*;
+import astar.tests.*;
 import static org.junit.Assert.*;
+
 import java.util.*; 
 
 public class AStarTest {

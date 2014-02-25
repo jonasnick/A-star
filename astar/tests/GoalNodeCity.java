@@ -1,7 +1,7 @@
-package AStar.Tests;
-import AStar.IGoalNode;
-import AStar.ISearchNode;
-import AStar.Tests.SearchNodeCity;
+package astar.tests;
+import astar.IGoalNode;
+import astar.ISearchNode;
+import astar.tests.SearchNodeCity;
 /**
  * Test case from wikipedia
  * http://de.wikipedia.org/wiki/A*-Algorithmus

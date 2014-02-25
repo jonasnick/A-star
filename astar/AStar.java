@@ -1,10 +1,10 @@
-package AStar;
+package astar;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Collections;
 
-import AStar.ISearchNode;
+import astar.ISearchNode;
 
 /**
  * Uses the A* Algorithm to find the shortest path from 

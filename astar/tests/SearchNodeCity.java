@@ -1,7 +1,8 @@
-package AStar.Tests;
-import AStar.ISearchNode;
-import AStar.ASearchNode;
+package astar.tests;
 import java.util.*;
+
+import astar.ASearchNode;
+import astar.ISearchNode;
 
 /**
  * Test case from wikipedia

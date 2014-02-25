@@ -1,7 +1,8 @@
-package AStar.Tests;
-import AStar.ASearchNode;
-import AStar.ISearchNode;
+package astar.tests;
 import java.util.*;
+
+import astar.ASearchNode;
+import astar.ISearchNode;
 
 public class SearchNode2D extends ASearchNode {
     private int x;

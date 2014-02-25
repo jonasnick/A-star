@@ -1,5 +1,5 @@
-package AStar;
-import AStar.ISearchNode;
+package astar;
+import astar.ISearchNode;
 
 /**
  * GoalNodes don't need as much Information
