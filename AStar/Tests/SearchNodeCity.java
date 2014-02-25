@@ -79,16 +79,6 @@ public class SearchNodeCity extends ASearchNode{
         this.parent = this.castToSearchNodeCity(parent);
     }
 
-    public int compareTo(ISearchNode other) {
-        SearchNodeCity otherNode = this.castToSearchNodeCity(other);
-        if(this.f() < otherNode.f()){
-            return -1;
-        } else if(this.f() == otherNode.f()) {
-            return 0;
-        } else {
-            return 1;
-        }
-    }
     public boolean equals(Object other) {
          if(other instanceof SearchNodeCity) {
             SearchNodeCity otherNode = (SearchNodeCity) other;

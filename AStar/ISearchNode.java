@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Interface of a search node.
  */
-public interface ISearchNode extends Comparable<ISearchNode> {
+public interface ISearchNode {
     // total estimated cost of the node
     public double f();
     //"tentative" g, cost from the start node 

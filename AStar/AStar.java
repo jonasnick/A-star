@@ -1,10 +1,14 @@
 package AStar;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Collections;
+
 import AStar.ISearchNode;
-import java.util.*;
+
 /**
  * Uses the A* Algorithm to find the shortest path from 
- * an initial to a goal node.Nodes have to implement the
- * ISearchNode and IGoalNode interface respectively. 
+ * an initial to a goal node. 
  *
  */
 public class AStar {
@@ -13,7 +17,7 @@ public class AStar {
     // The maximum number of completed nodes. After that number the algorithm returns null.
     // If negative, the search will run until the goal node is found.
     private int maxSteps = -1;
-    //number of search steps the AStar will perform after that null is returned
+    //number of search steps the AStar will perform before null is returned
     private int numSearchSteps;
     
     public ISearchNode bestNodeAfterSearch;
@@ -41,6 +45,7 @@ public class AStar {
      * @return goal node from which you can reconstruct the path
      */
     public ISearchNode search(ISearchNode initialNode, IGoalNode goalNode) {
+    	
         PriorityQueue<ISearchNode> openSet = new PriorityQueue<ISearchNode>();
         openSet.add(initialNode);
         ArrayList<ISearchNode> closedSet = new ArrayList<ISearchNode>();
@@ -100,14 +105,14 @@ public class AStar {
             this.numSearchSteps += 1;
         }
         
-        this.bestNodeAfterSearch = Collections.min(closedSet);
+        this.bestNodeAfterSearch = Collections.min(closedSet, new SearchNodeComparator());
         return null;
     }
 
     /**
      * returns path from the earliest ancestor to the node in the argument
      * if the parents are set via AStar search, it will return the path found.
-     * This is the shortest shortes path, if the heurstic h does not overestimate 
+     * This is the shortest shortest path, if the heuristic h does not overestimate 
      * the true remaining costs
      * @param node node from which the parents are to be found. Parents of the node should
      *              have been properly set in preprocessing (f.e. AStar.search)
@@ -135,6 +140,12 @@ public class AStar {
 
     public void setMaxSteps(int maxSteps) {
         this.maxSteps = maxSteps;
+    }
+    
+    static class SearchNodeComparator implements Comparator<ISearchNode> {
+    	public int compare(ISearchNode node1, ISearchNode node2) {
+    		return Double.compare(node1.f(), node2.f());
+    	}
     }
 
     /**

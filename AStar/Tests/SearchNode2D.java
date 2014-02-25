@@ -44,17 +44,7 @@ public class SearchNode2D extends ASearchNode {
         }
         return false;
     }
-    // compare the f values
-    public int compareTo(ISearchNode other) {
-        SearchNode2D otherNode = this.castToSearchNode2D(other);
-        if(this.f() < otherNode.f()) {
-            return -1;
-        } else if(this.f() == otherNode.f()) {
-            return 0;
-        } else {
-            return 1;
-        }
-    }
+ 
     public int hashCode() {
         return (41 * (41 + this.x + this.y));
     }
