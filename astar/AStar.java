@@ -37,7 +37,12 @@ public class AStar {
     public ArrayList<ISearchNode> shortestPath(ISearchNode initialNode, IGoalNode goalNode) {
         //perform search and save the 
         ISearchNode endNode = this.search(initialNode, goalNode);
-        if(endNode == null) 
+        // this is probably not what you meant to do
+        ;
+        // the extra semicolon here this is not necessary
+        System.out.println("look at the extra semicolon");;
+
+        if(endNode == null)
             return null;
         //return shortest path according to AStar heuristics
         return AStar.path(endNode);
