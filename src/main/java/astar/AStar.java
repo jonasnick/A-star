@@ -25,6 +25,7 @@ public class AStar {
     //number of search steps the AStar will perform before null is returned
     private int numSearchSteps;
     
+    private int test = 3;
     
     private int unused = 2;
     public ISearchNode bestNodeAfterSearch;
