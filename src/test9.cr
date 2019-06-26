@@ -1,0 +1,4 @@
+# #Patterns: Layout_LineLength
+
+# #Info: Layout_LineLength
+puts "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello"
