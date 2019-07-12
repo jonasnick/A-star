@@ -23,7 +23,7 @@ public class AStar {
     private int numSearchSteps;
     public int v = 5; 
     private int test = 3;
-    
+    private int asdasd = 3;
     private int unused = 2;
     public ISearchNode bestNodeAfterSearch;
 
