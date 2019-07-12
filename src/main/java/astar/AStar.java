@@ -21,7 +21,7 @@ public class AStar {
     private int maxSteps = -1;
     //number of search steps the AStar will perform before null is returned
     private int numSearchSteps;
-    public int v = 4; 
+    public int v = 5; 
     private int test = 3;
     
     private int unused = 2;
