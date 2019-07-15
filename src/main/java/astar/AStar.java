@@ -26,6 +26,7 @@ public class AStar {
     private int test = 3;
     private int asdasd = 3;
     private int unused = 2;
+    private int uhdasdjh = 123;
     public ISearchNode bestNodeAfterSearch;
 
     public AStar() {
