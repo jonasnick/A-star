@@ -23,6 +23,7 @@ public class AStar {
     private int numSearchSteps;
     private String unusedString = "adlksajdaldkh";
     public int v = 5;
+    public int oisdgj = 423;
     private int jhgjhg  = 876;
     private int test = 3;
     private int asdasd = 3;
